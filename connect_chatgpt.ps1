@@ -3,16 +3,22 @@ Param(
     [Alias('p')]
     [string]$prompt
 )
+# Defining a Parameter block
+# Source - https://liuhongbo.medium.com/how-to-use-chatgpt-cli-with-powershell-d941cb3d7a3c
+# Reading the JSON file which holds the apikey
+$json = (Get-Content "openai_api.json" -Raw) | ConvertFrom-Json
+$apikey = $json.apikey
+
 $headers = @{
     "Content-Type" = "application/json"
-    "Authorization" = "Bearer your-api-key"
+    "Authorization" = "Bearer $apikey"
 }
 
 $body = @{
     "model" = "text-davinci-003"
     "prompt" = $prompt
     "temperature" = 0.5
-    "max_tokens" = 100
+    "max_tokens" = 2049
 } | ConvertTo-Json
 
 $url = "https://api.openai.com/v1/completions"
