@@ -1,2 +1,2 @@
-# chatgpt-personal
+# ChatGPT
 Applications and Functions relating to ChatGPT
