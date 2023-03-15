@@ -6,7 +6,7 @@ Param(
 # Defining a Parameter block
 # Source - https://liuhongbo.medium.com/how-to-use-chatgpt-cli-with-powershell-d941cb3d7a3c
 # Reading the JSON file which holds the apikey
-$json = (Get-Content "openai_api.json" -Raw) | ConvertFrom-Json
+$json = (Get-Content "apikey.json" -Raw) | ConvertFrom-Json
 $apikey = $json.apikey
 
 $headers = @{
